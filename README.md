@@ -1,7 +1,5 @@
 # Keylogger
 
-    Currently only download works for MacOS.
-
 This script is a keylogger that listens to keyboard events and logs all keystrokes to a file. Once the file size reaches a certain limit, it commits the changes to a GitHub repository using the GitHub API. It requires a configuration file `config.json` that contains the following information:
 
 ## Configuration
