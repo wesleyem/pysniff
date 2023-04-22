@@ -7,6 +7,7 @@
 *.msi
 config.json
 keystrokes.txt
+__pycache__/
 
 # misc
 .DS_Store
