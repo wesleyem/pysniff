@@ -1,0 +1,37 @@
+ls
+Special key Key.backspace pressed
+
+Special key Key.backspace pressed
+
+Special key Key.backspace pressed
+
+Special key Key.backspace pressed
+
+Special key Key.backspace pressed
+ls
+Special key Key.space pressed
+-
+Special key Key.shift pressed
+Falh
+Special key Key.enter pressed
+cd
+Special key Key.space pressed
+..
+Special key Key.enter pressed
+cd
+Special key Key.space pressed
+py
+Special key Key.tab pressed
+
+Special key Key.enter pressed
+ls
+Special key Key.space pressed
+-
+Special key Key.shift pressed
+
+Special key Key.shift pressed
+Falh
+Special key Key.enter pressed
+
+Special key Key.ctrl pressed
+c
